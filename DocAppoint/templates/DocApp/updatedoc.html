@@ -1,0 +1,76 @@
+{% extends 'DocApp/adminpage.html' %}
+
+{% load static %}
+
+{% block css %}
+
+{% endblock css %}
+
+{% block js %}
+{% endblock js %}
+
+{% block title %}
+<title>update doctor info page</title>
+{% endblock title %}
+
+{% block body %}
+<div class="container p-5">
+    <div class="heading rounded-3">
+        <h1 class="ms-5 p-2 display-5">Update Doctors Information</h1>
+      </div>
+
+    <div class="container w-75 bg-light rounded-3 p-5 mt-3 shadow border border-primary">
+
+        <form action="{% url 'updatedoc' app.id %}" method="post">
+            {% csrf_token %}
+
+            <div class="my-3">
+                <label for="name">Doctor Name:</label>
+                <input type="text" name="name" id="name" class="form-control" value="{{app.name}}">
+            </div>
+
+            <div class="my-3">
+                <label for="email">Doctor Email:</label>
+                <input type="email" name="email" id="email" class="form-control" value="{{app.email}}">
+            </div>
+
+            <div class="my-3">
+                <label for="pass1">Enter Update/Old Password:</label>
+                <input type="password" name="pass1" id="pass1" class="form-control">
+            </div>
+
+            <div class="my-3">
+                <label for="pass2">Confirm Password:</label>
+                <input type="password" name="pass2" id="pass2" class="form-control">
+            </div>
+
+
+            <div class="my-3">
+                <label for="contact">Contact Number:</label>
+                <input type="text" name="contact" id="contact" class="form-control" value="{{app.contact}}">
+            </div>
+
+            <div class="my-3">
+                <label for="address">Address:</label>
+                <textarea name="address" id="address" cols="30" rows="10" class="form-control">{{app.address}}</textarea>
+            </div>
+
+            <div class="my-3">
+                <label for="spcl">Specialization:</label>
+                <input type="text" name="spcl" id="spcl" class="form-control" value="{{app.spcl}}">
+            </div>
+
+            <div class="my-3">
+                <label for="ava">Avaibility:</label>
+                <input type="text" name="ava" id="ava" class="form-control" value="{{app.ava}}">
+            </div>
+
+            <div class="mb-2 text-center">
+                <input type="submit" value="Update" class="btn btn-outline-success">
+            </div>
+
+        </form>
+
+    </div>
+</div>
+{% endblock body %}

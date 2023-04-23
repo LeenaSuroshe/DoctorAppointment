@@ -1,0 +1,47 @@
+{% extends 'DocApp/adminpage.html' %}
+
+{% load static %}
+
+{% block css %}
+{% endblock css %}
+
+{% block js %}
+{% endblock js %}
+
+{% block title %}
+<title>Update statuspage</title>
+{% endblock title %}
+
+{% block body %}
+<!-- main container -->
+<div class="container p-5">
+
+    <!-- heading -->
+    <div class="heading rounded-3">
+      <h1 class="ms-5 p-2 display-5">Accept Or Reject Appointment</h1>
+    </div>
+
+    <div class="container w-75 bg-light rounded-3 p-5 mt-3 shadow border border-primary">
+        <div class="my-2 p-4 shadow border-bottom rounded-3 bg-light ">
+            <p>Patient Name: {{app.patientname}} | {{app.patientemail}}</p>
+            <p>Appointment With: {{app.docname}} | {{app.docemail}}</p>
+            <p>Appointment Schedule: {{app.appointdate}} | {{app.appointtime}}</p>
+            <p>Symptoms: {{app.symptoms}}</p>
+        </div>
+        <form action="{% url 'status' app.id %}" method="post">
+            {% csrf_token %}
+
+            <div class="my-3 p-4">
+                <label for="status">Appointment Status</label>
+                <input type="text" name="status" id="status" class="form-control">
+            </div>
+            <div class="mb-2 text-center">
+                <input type="submit" value="Submit" class="btn btn-outline-success">
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock body %}

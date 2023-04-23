@@ -1,0 +1,45 @@
+{% extends 'DocApp/base.html' %}
+
+{% load static %}
+
+{% block css %}
+{% endblock css %}
+
+{% block js %}
+{% endblock js %}
+
+{% block title %}
+<title>Patient Registration page</title>
+{% endblock title %}
+
+{% block body %}
+<div class="container p-5">
+    <div class="heading rounded-3">
+        <h1 class="ms-5 p-2 display-5">Patient Registration</h1>
+      </div>
+
+    <div class="container w-75 bg-light rounded-3 p-5 mt-3 shadow border border-primary">
+
+        <form action="{% url 'signup' %}" method="post">
+            {% csrf_token %}
+
+            {% for fm in forms %}
+            <div class="mb-2 w-75">
+                <div class="mb-2">
+                    {{fm.label_tag}}
+                </div>
+                <div class="mb-2">
+                    {{fm}}
+                    <span class="text-danger">{{fm.errors}}</span>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="mb-2 text-center">
+                <input type="submit" value="Sign Up" class="btn btn-outline-success">
+            </div>
+
+        </form>
+
+    </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,39 @@
+{% extends 'DocApp/base.html' %}
+
+{% load static %}
+
+{% block css %}
+{% endblock css %}
+
+{% block js %}
+<script>
+$(document).ready(function(){
+  $("p").hide(function(){
+    $("p").show(2000);
+  });
+});
+</script>
+{% endblock js %}
+
+{% block title %}
+<title>About us page</title>
+{% endblock title %}
+
+{% block body %}
+
+<div class="container p-5">
+    <!-- heading -->
+        <div class="heading rounded-3">
+          <h1 class="ms-5 p-2 display-5">About Us</h1>
+        </div>
+
+      <div class="my-4 p-5 shadow rounded-3 bg-light">
+        <p>The main motive of this website is to provide a reliable service to our users with guaranteed privacy. This website holds the details of the patient to book their appointment with the doctors and can view their appointments, bills etc.</p>
+        <p>The patient can view the doctors of their specialization, so that they can book an appointment with the respective doctor of their interest. Daily health tips are also given which patient can be read for their health.
+        <p>The Receptionist (Admin) can Add new Doctors, Update Doctors information, Delete Doctors, view all the appointments and generate their bill. </p>
+
+
+      </div>
+
+</div>
+{% endblock body %}

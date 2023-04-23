@@ -1,0 +1,26 @@
+
+  body{
+    background-color: rgb(211, 252, 236);
+  }
+  .navigation{
+    background-color: blueviolet;
+    color: rgb(252, 247, 253);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+  }
+  .heading{
+    background-color:rgb(137, 36, 146);
+    color: white;
+    text-shadow: 5px 5px 5px rgb(192, 104, 192);
+    padding: 3;
+    margin: 2;
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    font-style: italic;
+  }
+  .head{
+    font-family:cursive;
+    font-style: italic;
+    color: rgb(253, 250, 250);
+    text-shadow: 5px 5px black;
+  }

@@ -1,0 +1,71 @@
+{% extends 'DocApp/adminpage.html' %}
+
+{% load static %}
+
+{% block css %}
+{% endblock css %}
+
+{% block js %}
+{% endblock js %}
+
+{% block title %}
+<title>Generate Bill page</title>
+{% endblock title %}
+
+{% block body %}
+
+<div class="container p-5">
+    <!-- heading -->
+    <div class="heading rounded-3">
+        <h1 class="ms-5 p-2 display-5">Generate Bill</h1>
+      </div>
+      <div class="container w-75 bg-light rounded-3 p-5 mt-3 shadow border border-primary">
+
+        <form action="{% url 'generatebill' bill.id %}" method="post">
+            {% csrf_token %}
+
+            <div class="my-3">
+              <label for="patientname">Patient Name:</label>
+              <input type="text" name="patientname" id="patientname" class="form-control" value="{{bill.patientname}}">
+          </div>
+
+          <div class="my-3">
+              <label for="patientemail">Patient Email:</label>
+              <input type="email" name="patientemail" id="patientemail" class="form-control" value="{{bill.patientemail}}">
+          </div>
+
+            <div class="my-3">
+                <label for="docname">Doctor Name:</label>
+                <input type="text" name="docname" id="docname" class="form-control" value="{{bill.docname}}">
+            </div>
+
+            <div class="my-3">
+                <label for="docemail">Doctor Email:</label>
+                <input type="email" name="docemail" id="docemail" class="form-control" value="{{bill.docemail}}">
+            </div>
+
+
+            <div class="my-3">
+                <label for="bill">Amount:</label>
+                <input type="text" name="bill" id="bill" class="form-control">
+            </div>
+
+            <div class="my-3">
+                <label for="med">Medicines:</label>
+                <input type="text" name="med" id="med" class="form-control">
+            </div>
+
+            <div class="my-3">
+                <label for="user">Username:</label>
+                <input type="text" name="user" id="user" readonly class="form-control" value="{{bill.user}}">
+            </div>
+
+            <div class="mb-2 text-center">
+                <input type="submit" value="Generate Bill" class="btn btn-outline-success">
+            </div>
+
+        </form>
+
+    </div>
+</div>
+{% endblock body %}

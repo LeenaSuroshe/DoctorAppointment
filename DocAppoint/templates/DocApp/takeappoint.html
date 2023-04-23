@@ -1,0 +1,86 @@
+{% extends 'DocApp/base.html' %}
+
+{% load static %}
+
+{% block css %}
+{% endblock css %}
+
+{% block js %}
+{% endblock js %}
+
+{% block title %}
+<title>Book Appointment page</title>
+{% endblock title %}
+
+{% block body %}
+<div class="container p-5">
+    <div class="heading rounded-3">
+        <h1 class="ms-5 p-2 display-5">Book Appointment</h1>
+      </div>
+
+    <div class="container w-75 bg-light rounded-3 p-5 mt-3 shadow border border-primary">
+
+        <form action="{% url 'takeappoint' app.id %}" method="post">
+            {% csrf_token %}
+
+            <div class="my-3">
+                <label for="docname">Doctor Name:</label>
+                <input type="text" readonly name="docname" id="docname" class="form-control" value="{{app.name}}">
+            </div>
+
+            <div class="my-3">
+                <label for="docemail">Doctor Email:</label>
+                <input type="email" readonly name="docemail" id="docemail" class="form-control" value="{{app.email}}">
+            </div>
+
+            <div class="my-3">
+                <label for="patientname">Patient Name:</label>
+                <input type="text" name="patientname" id="patientname" class="form-control">
+            </div>
+
+            <div class="my-3">
+                <label for="patientemail">Patient Email:</label>
+                <input type="email" name="patientemail" id="patientemail" class="form-control">
+            </div>
+
+            <div class="my-3">
+                <label for="appointdate">Appointment Date:</label>
+                <input type="date" name="appointdate" id="appointdate" class="form-control">
+            </div>
+
+            <div class="my-3">
+                <label for="appointtime">Appointment Time:</label>
+                <select name="appointtime" id="appointtime" class="form-control">
+                    <option value="9am-10am">9am-10am</option>
+                    <option value="10am-11am">10am-11am</option>
+                    <option value="11am-12am">11am-12am</option>
+                    <option value="12am-1am">12am-1am</option>
+                    <option value="2am-3am">2am-3am</option>
+                    <option value="3am-4am">3am-4am</option>
+                    <option value="4am-5am">4am-5am</option>
+                    <option value="5am-6am">5am-6am</option>
+                    <option value="6am-7am">6am-7am</option>
+                    <option value="7am-8am">7am-8am</option>
+                  </select>
+            </div>
+
+            <div class="my-3">
+                <label for="symptoms">Symptoms:</label>
+                <input type="text" name="symptoms" id="symptoms" class="form-control">
+            </div>
+
+            <div class="my-3">
+                <label for="user">Username:</label>
+                <input type="text" name="user" id="user" readonly class="form-control" value="{{user.username}}">
+            </div>
+
+            <div class="mb-2 text-center">
+                <input type="submit" value="Book Appointment" class="btn btn-outline-success">
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock body %}
